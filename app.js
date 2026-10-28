@@ -561,7 +561,7 @@ function initConfigurator() {
         const body = state.jacket ? 'enchaquetado (dimple jacket)' : 'cilindro sencillo';
         const feet = state.feet.toLowerCase();
         const valve = state.valve.toLowerCase();
-        sumEl.textContent = `${fmt(L)} L, ${body}, patas con ${feet}, ${valve}.`;
+        sumEl.textContent = `${fmt(L)} Lts, ${body}, patas con ${feet}, ${valve}.`;
         drainTxt.textContent = state.valve;
         cta.href = waUrl(`Hola, quiero cotizar un fermentador isobárico: ${fmt(L)} litros, ${body}, patas con ${feet}, ${valve}.`);
         if (scene) scene.apply(state);
