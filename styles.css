@@ -719,6 +719,26 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
     .tile--6{grid-column:1/13;grid-row:9/12}
 }
 
+/* ==========================================================================
+   OTROS EQUIPOS Y TALLER
+   ========================================================================== */
+.otros{padding:clamp(4.5rem,10vw,8.5rem) 0;background:var(--paper)}
+.taller{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 560px at 80% 18%,var(--navy-3) 0%,var(--navy) 62%);padding:clamp(4.5rem,10vw,8.5rem) 0}
+.otros__head,.taller__head{margin-bottom:clamp(2rem,5vw,3.5rem)}
+.taller__head .h2{max-width:17em}
+.equip-grid{columns:2;column-gap:1rem}
+.equip{display:block;margin:0 0 1.5rem;break-inside:avoid;-webkit-column-break-inside:avoid;cursor:zoom-in}
+.equip__in{overflow:hidden;border-radius:var(--r-card);background:linear-gradient(180deg,#EEF3F8,#D8E2EB);box-shadow:var(--shadow-sm)}
+.equip__in img{display:block;width:100%;height:auto;transition:scale 1s var(--ease)}
+.equip:hover .equip__in img{scale:1.05}
+.equip figcaption:not(.sr-only){margin-top:.65rem;font-size:.88rem;line-height:1.4;color:var(--ink-3)}
+.taller .equip{margin-bottom:1rem}
+.taller .equip__in{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 30px 60px -30px rgba(0,0,0,.6)}
+@media (min-width:900px){
+    .equip-grid{columns:3;column-gap:1.1rem}
+    .taller .equip{margin-bottom:1.1rem}
+}
+
 /* Lightbox */
 .lightbox{position:fixed;inset:0;z-index:var(--z-lightbox);display:grid;place-items:center;background:rgba(4,17,31,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
 .lightbox.is-open{opacity:1;visibility:visible;transition:opacity .45s var(--ease)}
