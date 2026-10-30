@@ -196,6 +196,10 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 8px)}
     .header-cta{margin-left:1rem}
     .burger{display:none}
 }
+@media (min-width:1024px) and (max-width:1279px){
+    .nav a{padding:.6rem .55rem}
+    .nav a::after{left:.55rem;right:.55rem}
+}
 
 /* Menú móvil */
 .menu{position:fixed;inset:0;z-index:var(--z-menu);background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--header-h) + 1.5rem) var(--gutter) 2rem;visibility:hidden;clip-path:circle(0% at calc(100% - 2.4rem) 2rem);transition:clip-path .9s var(--ease-io),visibility 0s .9s;overflow-y:auto}
@@ -396,6 +400,15 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
     .pin-ready .flow__copy{grid-area:copy}
     .pin-ready .flow__pan{width:100%;height:100%}
     .pin-ready .flow__svg{height:100%}
+}
+/* Móvil y tablet: el diagrama se ve completo (el texto del último paso, el más alto, ya no lo comprime) */
+@media (max-width:1023px){
+    .pin-ready .flow__inner{grid-template-rows:auto auto minmax(140px,1fr) auto;gap:.5rem}
+    .pin-ready .flow__pan{height:100%;width:auto;min-width:100%;max-width:max(100%,860px);aspect-ratio:970/382}
+    .pin-ready .flow__svg{height:100%}
+    .pin-ready .flow__bar{margin-top:.4rem}
+    .pin-ready .flow__step--end h3{font-size:clamp(1.15rem,.85rem + 1.2vw,1.6rem)}
+    .pin-ready .flow__step--end .btn{margin-top:.8rem}
 }
 
 /* SVG del diagrama */
@@ -724,8 +737,14 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
    ========================================================================== */
 .otros{padding:clamp(4.5rem,10vw,8.5rem) 0;background:var(--paper)}
 .taller{position:relative;overflow:hidden;color:#fff;background:radial-gradient(900px 560px at 80% 18%,var(--navy-3) 0%,var(--navy) 62%);padding:clamp(4.5rem,10vw,8.5rem) 0}
-.otros__head,.taller__head{margin-bottom:clamp(2rem,5vw,3.5rem)}
-.taller__head .h2{max-width:17em}
+.disenos{padding:clamp(4.5rem,10vw,8.5rem) 0;background:var(--paper)}
+.otros__head,.taller__head,.disenos__head{margin-bottom:clamp(2rem,5vw,3.5rem)}
+.taller__head .h2,.disenos__head .h2{max-width:17em}
+/* Planos con texto fino: una columna en móvil y dos en pantallas grandes, sin recortes */
+.disenos .equip-grid{columns:1}
+.disenos .equip{margin-bottom:1rem}
+.disenos .equip__in{border:1px solid var(--line)}
+@media (min-width:640px){.disenos .equip-grid{columns:2;column-gap:1.1rem}}
 .equip-grid{columns:2;column-gap:1rem}
 .equip{display:block;margin:0 0 1.5rem;break-inside:avoid;-webkit-column-break-inside:avoid;cursor:zoom-in}
 .equip__in{overflow:hidden;border-radius:var(--r-card);background:linear-gradient(180deg,#EEF3F8,#D8E2EB);box-shadow:var(--shadow-sm)}
