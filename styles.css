@@ -403,12 +403,17 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
 }
 /* Móvil y tablet: el diagrama se ve completo (el texto del último paso, el más alto, ya no lo comprime) */
 @media (max-width:1023px){
-    .pin-ready .flow__inner{grid-template-rows:auto auto minmax(140px,1fr) auto;gap:.5rem}
+    .pin-ready .flow__inner{grid-template-rows:auto auto minmax(0,1fr) auto;gap:.5rem}
     .pin-ready .flow__pan{height:100%;width:auto;min-width:100%;max-width:max(100%,860px);aspect-ratio:970/382}
     .pin-ready .flow__svg{height:100%}
     .pin-ready .flow__bar{margin-top:.4rem}
     .pin-ready .flow__step--end h3{font-size:clamp(1.15rem,.85rem + 1.2vw,1.6rem)}
     .pin-ready .flow__step--end .btn{margin-top:.8rem}
+}
+/* Pantallas muy bajas: sin los botones de etapa el texto cabe completo y el diagrama conserva altura */
+@media (max-width:1023px) and (max-height:580px){
+    .pin-ready .flow__rail{display:none}
+    .pin-ready .flow__inner{grid-template-rows:auto minmax(0,1fr) auto}
 }
 
 /* SVG del diagrama */
@@ -765,13 +770,13 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
 .lightbox.is-open .lightbox__fig{scale:1;opacity:1}
 .lightbox__fig img{max-width:min(92vw,1100px);max-height:76svh;width:auto;height:auto;border-radius:var(--r-card);box-shadow:0 40px 100px rgba(0,0,0,.6);background:var(--navy-2)}
 .lightbox__fig figcaption{color:#C5D6E6;font-size:.95rem;text-align:center;max-width:60ch;padding-inline:1rem}
-.lightbox__close,.lightbox__nav{position:absolute;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;color:#fff;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transition:background .3s var(--ease),scale .4s var(--ease)}
+.lightbox__close,.lightbox__nav{position:absolute;z-index:2;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;color:#fff;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transition:background .3s var(--ease),scale .4s var(--ease)}
 .lightbox__close:hover,.lightbox__nav:hover{background:var(--blue-btn);scale:1.06}
 .lightbox__close{right:1rem;top:1rem}
 .lightbox__nav{top:50%;translate:0 -50%}
 .lightbox__nav--prev{left:.75rem}
 .lightbox__nav--next{right:.75rem}
-@media (max-width:640px){.lightbox__nav{top:auto;bottom:1.2rem;translate:0 0}}
+@media (max-width:640px){.lightbox__nav{top:auto;bottom:1.2rem;translate:0 0}.lightbox__fig figcaption{padding-inline:4.5rem}}
 
 /* ==========================================================================
    FAQ
