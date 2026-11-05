@@ -401,22 +401,28 @@ html:not(.js) .manifesto__text .sw,html:not(.js) .inline-img{opacity:1;scale:1}
     .pin-ready .flow__pan{width:100%;height:100%}
     .pin-ready .flow__svg{height:100%}
 }
-/* Tablet: el diagrama se ve completo. En celular se mantiene el acercamiento que sigue al tanque activo */
-@media (min-width:641px) and (max-width:1023px){
-    .pin-ready .flow__pan{height:100%;width:auto;min-width:100%;max-width:max(100%,860px);aspect-ratio:970/382}
-    .pin-ready .flow__svg{height:100%}
-}
-/* Móvil y tablet: el texto del último paso, el más alto, nunca se corta */
+/* Móvil y tablet: el dibujo del equipo se ve completo y el texto del último paso, el más alto, nunca se corta */
 @media (max-width:1023px){
     .pin-ready .flow__inner{grid-template-rows:auto auto minmax(0,1fr) auto;gap:.5rem}
+    .pin-ready .flow__pan{height:100%;width:auto;min-width:100%;max-width:max(100%,860px);aspect-ratio:970/382}
+    .pin-ready .flow__svg{height:100%}
     .pin-ready .flow__bar{margin-top:.4rem}
     .pin-ready .flow__step--end h3{font-size:clamp(1.15rem,.85rem + 1.2vw,1.6rem)}
     .pin-ready .flow__step--end .btn{margin-top:.8rem}
 }
-/* Pantallas muy bajas: sin los botones de etapa el texto cabe completo y el diagrama conserva altura */
-@media (max-width:1023px) and (max-height:580px){
-    .pin-ready .flow__rail{display:none}
-    .pin-ready .flow__inner{grid-template-rows:auto minmax(0,1fr) auto}
+/* Pantallas de poca altura (celular de pie o acostado): título, opciones y textos más compactos para que el dibujo conserve su tamaño */
+@media (max-width:1023px) and (max-height:620px){
+    .pin-ready .flow__stage{padding-bottom:.6rem}
+    .pin-ready .flow__inner{gap:.4rem}
+    .pin-ready .flow__head .h2{font-size:clamp(.95rem,5.2vw,1.3rem);white-space:nowrap}
+    .pin-ready .flow__rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.25rem}
+    .pin-ready .flow__rail button{padding:.55rem 0;font-size:clamp(.58rem,2.8vw,.76rem);letter-spacing:-.01em;text-align:center}
+    .pin-ready .flow__step .flow__kicker{margin-bottom:.4rem;font-size:.66rem}
+    .pin-ready .flow__step h3{font-size:1.35rem;margin-bottom:.4rem}
+    .pin-ready .flow__step--end h3{font-size:1.05rem}
+    .pin-ready .flow__step p:not(.flow__kicker){font-size:.86rem;line-height:1.42}
+    .pin-ready .flow__step--end .btn{min-height:44px;margin-top:.55rem;font-size:.92rem}
+    .pin-ready .flow__bar{margin-top:.3rem}
 }
 
 /* SVG del diagrama */
